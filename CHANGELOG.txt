@@ -1,0 +1,25 @@
+16-12-2011  v0.0.1
+
+	* First release.
+
+22-08-2012  v1.0.0
+
+    * Suspends translation when losing window focus, so that users can
+      type using qwerty in other windows while running Fly
+    * Support for other steno machines, by using the same discovery method
+      plover is using
+    * Docs updated to note xlib is needed if plover has not been installed
+    * Steno colour overlay option, where groups of keys such as HR are
+      coloured according to the steno grid image, in this case cyan for L.
+    * Returns random chord rather than easiest for uncategorized chords.
+    * Left shift key will toggle hint options on or off. Hint options can 
+      be set in config.py.
+    * Word:category dictionary now used so that misstrokes and briefs do not
+      appear in lessons. In word mode, only canon strokes or uncategorized 
+      strokes will be presented.
+    * Any chord can be used that produces the correct translation, not just 
+      the one presented to the user.
+    * "Briefs" lesson added, that contains only briefs from word
+      categorization dictionary.
+
+

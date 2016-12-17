@@ -1,0 +1,85 @@
+This document describes how lessons work, and how you can add your own. 
+Lessons should be added to the fly/data/lessons directory.
+
+=== INTRODUCTION ===
+
+A lesson file is a text file with extension ".les", which contains words for 
+the user to type when the game is running in Lesson Mode. Each lesson file has 
+a corresponding ".chd" file, which contains the chords for the text in the 
+lesson file. The game will generate a ".chd" if this is missing, so if you 
+make a change to the lesson, you need to delete the ".chd" file so that it's 
+regenerated.
+
+=== SPECIFYING OPTIONS FOR LESSON FILES ===
+
+On the first line of each lesson file, you can specify the options you want
+for retrieving the words and displaying them. Available options for retrieval 
+are:
+* randomize
+* introduce_increment
+* in_order
+You may only use ONE of these options. If more than one is specified, the last 
+one will be used.
+
+Available options for display are:
+* word
+* sentence
+You may only use ONE of these options. If more than one is specified, the last 
+one will be used.
+
+You should specify these in angle brackets, such as:
+<randomize, word>
+or 
+<in_order, sentence>
+
+If the options are omitted, default options of <in_order, word> will be used.
+
+=== WHAT THE OPTIONS ARE ===
+
+RETRIEVAL OPTIONS (use one of these)
+* randomize: 
+Retrieve words at random for the user to type.
+
+* introduce_increment:
+Start with a minimum of words, and add extra words when the user meets 
+accuracy/speed requirements (see fly/config.py for how to set the 
+requirements). Extra words are removed if the user doesn't meet requirements, 
+but the base words are always available.
+
+* in_order:
+Display the words to type in order, one at a time. The user must type a word 
+correctly before he/she can go on to the next word. When the last word is 
+reached, the lesson starts again at the beginning.
+
+DISPLAY OPTIONS (use one of these)
+* word:
+One word at a time is displayed on the screen for the user to type.
+
+* sentence:
+An entire sentence is displayed on the screen for the user to type.
+NOTE: This is currently only supported for in_order retrieval.
+
+=== WHEN ADDING LESSONS ===
+
+* The name of the lesson file will be used in the GUI as the name of the 
+lesson, but underscores in the lesson name will be transformed into spaces. For
+example, if a lesson file exists called magic_words.les, in the GUI this will 
+become: Magic Words. NOTE: Keep the lesson name short, or the full name will 
+not appear in the GUI.
+
+* When adding a lesson that will be used with the sentence display mode, 
+restrict sentence length to less than or equal to 48 columns, otherwise it 
+will not fit in the UI.
+
+* The process of translating a lesson to a ".chd" file containing chords is 
+not fully developed, and may not translate all words correctly. Also, some 
+words may not be defined in the dictionary. In these cases, the translation 
+will be the fingerspelled word. Translation files can also be edited manually 
+if the translation process is not generating the chords that you want to 
+display.  
+* Once you've added the lesson to the data/lessons directory it will become 
+available in the GUI by entering Lesson Mode and clicking ">" until the name of
+your lesson appears. 
+
+
+ 
