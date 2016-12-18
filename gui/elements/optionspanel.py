@@ -8,7 +8,7 @@ from fly.gui import constants as c
 from fly.gui import genericelements as gel
 from fly.models import threemode
 from fly import config
-
+import sys
 
 class OptionsPanelGUI(interface.GUIElementInterface):
 
@@ -372,6 +372,7 @@ class DisplayOptionsPanelGUI(interface.GUIElementInterface):
         self.hints_on = True
         self.buttons = []
 
+        self.__add_quit_button()
         self.__add_display_qwerty_button()
         self.__add_display_steno_button()
         self.__add_display_chord_to_type_button()
@@ -380,6 +381,20 @@ class DisplayOptionsPanelGUI(interface.GUIElementInterface):
         self.__add_display_speed_bar_button()
         self.__add_toggle_word_sentence_button()
         self.__add_toggle_steno_color_button()
+
+    def __add_quit_button(self):
+
+        """Add button to quit the game."""
+
+        self.quit_button = \
+                self.__get_button(9, "Quit game")
+        self.quit_button.onclick = self.__quit_clicked
+        self.buttons.append(self.quit_button)
+
+    def __quit_clicked(self):
+
+        """Quit the game"""
+        sys.exit()
 
     def __add_display_qwerty_button(self):
 

@@ -68,7 +68,7 @@ class Main(object):
         # Set up screen
         pygame.init()
         self.screen = pygame.display.set_mode((constants.SCREEN_WIDTH, 
-                                               constants.SCREEN_HEIGHT))
+                                               constants.SCREEN_HEIGHT), pygame.FULLSCREEN)
         pygame.display.set_caption("Fly, Plover, Fly! "
                                    "v%s" % __version__)
         self.screen.fill(constants.CANVAS_COLOR)
